@@ -375,7 +375,7 @@ type File struct {
 // Link returns a full path to the download URL for a File.
 //
 // It requires the Bot Token to create the link.
-func (f *File) Link(token string) string {
+func (f *File) Link(token, FileEndpoint string) string {
 	return fmt.Sprintf(FileEndpoint, token, f.FilePath)
 }
 
