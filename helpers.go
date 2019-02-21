@@ -622,7 +622,7 @@ func NewEditMessageCaption(chatID int64, messageID int, caption string) EditMess
 			ChatID:    chatID,
 			MessageID: messageID,
 		},
-		Caption:   caption,
+		Caption: caption,
 	}
 }
 
@@ -707,9 +707,10 @@ func NewReplyKeyboard(rows ...[]KeyboardButton) ReplyKeyboardMarkup {
 // NewInlineKeyboardButtonData creates an inline keyboard button with text
 // and data for a callback.
 func NewInlineKeyboardButtonData(text, data string) InlineKeyboardButton {
+	b := []byte(data)
 	return InlineKeyboardButton{
 		Text:         text,
-		CallbackData: &data,
+		CallbackData: &b,
 	}
 }
 

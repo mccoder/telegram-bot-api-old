@@ -375,7 +375,7 @@ type File struct {
 // Link returns a full path to the download URL for a File.
 //
 // It requires the Bot Token to create the link.
-func (f *File) Link(token string) string {
+func (f *File) Link(token, FileEndpoint string) string {
 	return fmt.Sprintf(FileEndpoint, token, f.FilePath)
 }
 
@@ -421,7 +421,7 @@ type InlineKeyboardMarkup struct {
 type InlineKeyboardButton struct {
 	Text                         string        `json:"text"`
 	URL                          *string       `json:"url,omitempty"`                              // optional
-	CallbackData                 *string       `json:"callback_data,omitempty"`                    // optional
+	CallbackData                 *[]byte       `json:"callback_data,omitempty"`                    // optional
 	SwitchInlineQuery            *string       `json:"switch_inline_query,omitempty"`              // optional
 	SwitchInlineQueryCurrentChat *string       `json:"switch_inline_query_current_chat,omitempty"` // optional
 	CallbackGame                 *CallbackGame `json:"callback_game,omitempty"`                    // optional
@@ -436,7 +436,7 @@ type CallbackQuery struct {
 	Message         *Message `json:"message"`           // optional
 	InlineMessageID string   `json:"inline_message_id"` // optional
 	ChatInstance    string   `json:"chat_instance"`
-	Data            string   `json:"data"`            // optional
+	Data            []byte   `json:"data"`            // optional
 	GameShortName   string   `json:"game_short_name"` // optional
 }
 

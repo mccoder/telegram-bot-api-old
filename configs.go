@@ -9,6 +9,7 @@ import (
 
 // Telegram constants
 const (
+	APIHost = "https://api.telegram.org/"
 	// APIEndpoint is the endpoint for all API methods,
 	// with formatting for Sprintf.
 	APIEndpoint = "https://api.telegram.org/bot%s/%s"
