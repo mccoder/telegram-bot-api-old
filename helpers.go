@@ -785,10 +785,10 @@ func NewOneTimeReplyKeyboard(rows ...[]KeyboardButton) ReplyKeyboardMarkup {
 
 // NewInlineKeyboardButtonData creates an inline keyboard button with text
 // and data for a callback.
-func NewInlineKeyboardButtonData(text, data string) InlineKeyboardButton {
+func NewInlineKeyboardButtonData(text string, data []byte) InlineKeyboardButton {
 	return InlineKeyboardButton{
 		Text:         text,
-		CallbackData: &data,
+		CallbackData: data[:],
 	}
 }
 
